@@ -10,6 +10,8 @@ const schema = a.schema({
   Todo: a
     .model({
       content: a.string(),
+      isDone: a.boolean().default(false),   // NEW FIELD 1: checkbox to mark complete
+      priority: a.enum(["LOW", "MEDIUM", "HIGH"]),  // NEW FIELD 2: priority level
     })
     .authorization((allow) => [allow.publicApiKey()]),
 });
